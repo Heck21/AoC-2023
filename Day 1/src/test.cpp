@@ -18,7 +18,7 @@ void test(void)
     assert(find_value(lines.at(2)) == 15);
     assert(find_value(lines.at(3)) == 77);
 
-    for (auto line : lines)
+    for (auto &line : lines)
     {
         total += find_value(line);
     }
