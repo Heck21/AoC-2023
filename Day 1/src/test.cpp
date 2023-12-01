@@ -1,3 +1,5 @@
+#include <cassert>
+
 #include "solution.h"
 
 void test(void)

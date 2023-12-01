@@ -1,20 +1,18 @@
 #ifndef SOLUTION_H
 #define SOLUTION_H
+#pragma once
 
-#include <iostream>
 #include <string>
 #include <vector>
-#include <fstream>
 #include <cctype>
-#include <cassert>
 
 using namespace std;
 
-int find_value(string line)
+int find_value(string &line)
 {
     vector<char> digits;
 
-    for (auto character : line)
+    for (auto &character : line)
     {
         if (isdigit(character))
         {

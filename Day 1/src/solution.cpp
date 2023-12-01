@@ -1,3 +1,6 @@
+#include <iostream>
+#include <fstream>
+
 #include "solution.h"
 
 int main(void)
