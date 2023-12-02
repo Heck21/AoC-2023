@@ -1,5 +1,5 @@
-#ifndef SOLUTION_H
-#define SOLUTION_H
+#ifndef PART_1_H
+#define PART_1_H
 #pragma once
 
 #include <string>
@@ -33,4 +33,4 @@ int find_value(string &line)
     return 0;
 }
 
-#endif // SOLUTION_H
+#endif // PART_1_H

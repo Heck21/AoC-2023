@@ -1,6 +1,6 @@
 #include <cassert>
 
-#include "solution.h"
+#include "part1.h"
 
 void test(void)
 {

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "solution.h"
+#include "part2.h"
 
 int main(void)
 {
