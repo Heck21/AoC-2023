@@ -18,7 +18,7 @@ Part 2 offered a lot of challenges since I'm not familiar with regex.
 2. Finding a good way to convert the worded forms of the numbers to their numeric forms.
 3. Dealing with edge cases like `oneight`.
 
-### How I Solved Each Problem
+### How Problems Were Solved
 
 #### Problem 1
 
