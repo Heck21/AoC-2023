@@ -1,6 +1,3 @@
-// Doesn't work all the time.
-// Will fix at a later date.
-
 #ifndef PART_2_H
 #define PART_2_H
 #pragma once
@@ -9,25 +6,24 @@
 #include <vector>
 #include <map>
 #include <cctype>
-#include <regex>
 
 using namespace std;
 
-map<string, char> values = {
-    {"one", '1'},
-    {"two", '2'},
-    {"three", '3'},
-    {"four", '4'},
-    {"five", '5'},
-    {"six", '6'},
-    {"seven", '7'},
-    {"eight", '8'},
-    {"nine", '9'},
+vector<string> values = {
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
 };
 
 int find_value(string &line)
 {
-    vector<char> digits;
+    vector<int> digits;
     string buffer;
 
     for (auto &character : line)
@@ -36,27 +32,31 @@ int find_value(string &line)
         {
             buffer += character;
 
-            if (values.contains(buffer))
+            for (size_t i = 0; i < values.size(); i++)
             {
-                digits.push_back(values[buffer]);
-                buffer = "";
+                if (buffer.contains(values[i]))
+                {
+                    digits.push_back(i + 1);
+                    buffer = "";
+                    break;
+                }
             }
         }
 
         if (isdigit(character))
         {
-            digits.push_back(character);
+            digits.push_back(character - '0');
         }
     }
 
     if (digits.size() > 0)
     {
-        string value;
+        int value{0};
 
-        value += digits.front();
+        value += digits.front() * 10;
         value += digits.back();
 
-        return stoi(value);
+        return value;
     }
 
     return 0;
