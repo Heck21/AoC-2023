@@ -40,8 +40,11 @@ int find_value(string &line)
             {
                 if (buffer.contains(values[i]))
                 {
+                    char last = buffer.back();
+
                     digits.push_back(i + 1);
-                    buffer.clear();
+
+                    buffer = last;
                     break;
                 }
             }
