@@ -4,9 +4,9 @@
 
 void test(void)
 {
-    int total{0};
+    [[maybe_unused]] int total{0};
 
-    vector<string> lines = {
+    [[maybe_unused]] vector<string> lines = {
         "1abc2",
         "pqr3stu8vwx",
         "a1b2c3d4e5f",

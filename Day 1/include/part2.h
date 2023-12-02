@@ -4,7 +4,6 @@
 
 #include <string>
 #include <vector>
-#include <map>
 #include <cctype>
 
 using namespace std;
@@ -28,7 +27,12 @@ int find_value(string &line)
 
     for (auto &character : line)
     {
-        if (!isdigit(character))
+        if (isdigit(character))
+        {
+            digits.push_back(character - '0');
+            buffer.clear();
+        }
+        else
         {
             buffer += character;
 
@@ -37,24 +41,16 @@ int find_value(string &line)
                 if (buffer.contains(values[i]))
                 {
                     digits.push_back(i + 1);
-                    buffer = "";
+                    buffer.clear();
                     break;
                 }
             }
-        }
-
-        if (isdigit(character))
-        {
-            digits.push_back(character - '0');
         }
     }
 
     if (digits.size() > 0)
     {
-        int value{0};
-
-        value += digits.front() * 10;
-        value += digits.back();
+        int value = digits.front() * 10 + digits.back();
 
         return value;
     }
