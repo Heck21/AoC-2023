@@ -1,6 +1,11 @@
 ### IntelliJ IDEA ###
 out/
 
+.idea/**/workspace.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
 ### VS Code ###
 .vscode/
 

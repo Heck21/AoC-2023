@@ -6,48 +6,29 @@ import java.util.Collections;
 import java.util.List;
 
 public class Part2 {
+    private static final Path filepath = Path.of("input.txt");
+
     public static void main(String[] args) throws IOException {
-//        String[] games = {
-//            "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
-//            "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue",
-//            "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red",
-//            "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red",
-//            "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
-//        };
+        List<String> games = Files.readAllLines(filepath);
 
-        List<String> games = Files.readAllLines(Path.of("input.txt"));
+        int sumOfPowers = 0;
 
-        List<String[]> draws = new ArrayList<>();
+        List<List<String>> draws = Parser.parse(games);
 
-        int sum = 0;
-
-        for (var game : games) {
-            int colon = game.indexOf(":");
-
-            String[] draw = game
-                .substring(colon + 1)
-                .stripLeading()
-                .replace(";", "")
-                .replace(",", "")
-                .split(" ");
-
-            draws.add(draw);
-        }
-
-        for (int i = 0; i < draws.size(); i++) {
+        for (var draw : draws) {
             List<Integer> redList = new ArrayList<>();
             List<Integer> greenList = new ArrayList<>();
             List<Integer> blueList = new ArrayList<>();
 
-            for (int j = 0; j < draws.get(i).length; j++) {
-                if ((j + 1) % 2 == 0) {
-                    switch (draws.get(i)[j]) {
+            for (int i = 0; i < draw.size(); i++) {
+                if ((i + 1) % 2 == 0) {
+                    switch (draw.get(i)) {
                         case "red" ->
-                            redList.add(Integer.parseInt(draws.get(i)[j - 1]));
-                        case "green" -> greenList.add(
-                            Integer.parseInt(draws.get(i)[j - 1]));
+                            redList.add(Integer.parseInt(draw.get(i - 1)));
+                        case "green" ->
+                            greenList.add(Integer.parseInt(draw.get(i - 1)));
                         case "blue" ->
-                            blueList.add(Integer.parseInt(draws.get(i)[j - 1]));
+                            blueList.add(Integer.parseInt(draw.get(i - 1)));
                     }
                 }
             }
@@ -58,9 +39,9 @@ public class Part2 {
 
             int setPower = maxRed * maxGreen * maxBlue;
 
-            sum += setPower;
+            sumOfPowers += setPower;
         }
 
-        System.out.println(sum);
+        System.out.println(sumOfPowers);
     }
 }
