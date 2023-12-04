@@ -13,9 +13,9 @@ public class Example {
 
         int totalPoints = 0;
 
-        List<List<String>> parsedCard = CardParser.parse(example);
+        List<List<String>> parsedCards = CardParser.parse(example);
 
-        for (var x : parsedCard) {
+        for (var x : parsedCards) {
             totalPoints += CardParser.calculate(x);
         }
 
