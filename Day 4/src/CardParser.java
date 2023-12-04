@@ -2,20 +2,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardParser {
-    public static List<List<String>> parse(List<String> card) {
-        List<List<String>> parsedCard = new ArrayList<>();
+    public static List<List<String>> parse(List<String> cards) {
+        List<List<String>> parsedCards = new ArrayList<>();
 
-        for (var game : card) {
-            int colon = game.indexOf(":");
+        for (var card : cards) {
+            int colon = card.indexOf(":");
 
-            String[] parsedGame = game.substring(colon + 1)
+            String[] parsedCard = card.substring(colon + 1)
                                       .stripLeading()
                                       .split("\\|");
 
-            parsedCard.add(List.of(parsedGame));
+            parsedCards.add(List.of(parsedCard));
         }
 
-        return parsedCard;
+        return parsedCards;
     }
 
     public static List<String> getMatches(List<String> parsedCard) {
