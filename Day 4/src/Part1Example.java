@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Example {
+public class Part1Example {
     public static void main(String[] args) {
         List<String> example = List.of(
             "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53",
@@ -15,8 +15,10 @@ public class Example {
 
         List<List<String>> parsedCards = CardParser.parse(example);
 
-        for (var x : parsedCards) {
-            totalPoints += CardParser.calculate(x);
+        for (var parsedCard : parsedCards) {
+            List<String> matches = CardParser.getMatches(parsedCard);
+
+            totalPoints += CardParser.getPoints(matches);
         }
 
         System.out.println(totalPoints);

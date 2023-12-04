@@ -13,8 +13,10 @@ public class Part1 {
 
         List<List<String>> parsedCards = CardParser.parse(cards);
 
-        for (var x : parsedCards) {
-            totalPoints += CardParser.calculate(x);
+        for (var parsedCard : parsedCards) {
+            List<String> matches = CardParser.getMatches(parsedCard);
+
+            totalPoints += CardParser.getPoints(matches);
         }
 
         System.out.println(totalPoints);

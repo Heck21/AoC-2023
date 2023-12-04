@@ -18,30 +18,35 @@ public class CardParser {
         return parsedCard;
     }
 
-    public static int calculate(List<String> parsedCard) {
+    public static List<String> getMatches(List<String> parsedCard) {
         String[] winningNumbers = parsedCard.get(0)
                                             .trim()
                                             .replaceAll("\\s+", " ")
                                             .split(" ");
-        String[] numbers = parsedCard.get(1)
-                                     .trim()
-                                     .replaceAll("\\s+", " ")
-                                     .split(" ");
 
-        List<String> matchedNumbers = new ArrayList<>();
+        String[] ownNumbers = parsedCard.get(1)
+                                        .trim()
+                                        .replaceAll("\\s+", " ")
+                                        .split(" ");
+
+        List<String> matches = new ArrayList<>();
 
         for (var winningNumber : winningNumbers) {
-            for (var number : numbers) {
-                if (winningNumber.equals(number)) {
-                    matchedNumbers.add(number);
+            for (var ownNumber : ownNumbers) {
+                if (winningNumber.equals(ownNumber)) {
+                    matches.add(ownNumber);
                 }
             }
         }
 
-        if (!matchedNumbers.isEmpty()) {
+        return matches;
+    }
+
+    public static int getPoints(List<String> matches) {
+        if (!matches.isEmpty()) {
             int points = 1;
 
-            for (var x : matchedNumbers) {
+            for (var x : matches) {
                 points *= 2;
             }
 
