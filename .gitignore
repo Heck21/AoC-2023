@@ -1,4 +1,4 @@
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 out/
 
 **/.idea/**/workspace.xml
@@ -6,8 +6,11 @@ out/
 **/.idea/**/dictionaries
 **/.idea/**/shelf
 
-### VS Code ###
+# VS Code
 .vscode/
 
-### Executables for C++ ###
+# Executables for C++
 *.exe
+
+# Input Files
+**/input.txt
