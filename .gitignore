@@ -12,5 +12,8 @@ out/
 # Executables for C++
 *.exe
 
+# Pycache
+__pycache__/
+
 # Input Files
-**/input.txt
+**/*.txt
