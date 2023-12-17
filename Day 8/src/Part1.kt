@@ -2,8 +2,6 @@ import java.nio.file.Path
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
 
-typealias StringList = MutableList<String>
-
 fun steps(file: Path): Int {
     var lines = file.readLines()
     val directions = lines.first().toCharArray()
