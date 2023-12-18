@@ -15,7 +15,6 @@ fun hash(step: CharArray): Int {
     return current
 }
 
-
 fun calculate(file: Path): Int {
     var total = 0
 
