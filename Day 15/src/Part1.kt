@@ -38,7 +38,6 @@ fun calculate(file: Path): Int {
     return total
 }
 
-
 fun main() {
     val file = Path("input.txt")
 
