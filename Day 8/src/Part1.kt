@@ -57,7 +57,6 @@ fun steps(file: Path): Int {
     return steps
 }
 
-
 fun main() {
     val file = Path("input.txt")
 
